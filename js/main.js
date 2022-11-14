@@ -41,6 +41,7 @@ function changePlayers() {
 }
 function createNewGame() {
     getByID("errMsg").innerText = "";
+    getByID("announcement").innerText = "";
     resetData();
     var player1Name = getInputValueByID("player1").toUpperCase();
     var player2Name = getInputValueByID("player2").toUpperCase();
