@@ -1,3 +1,12 @@
+window.onload = function () {
+    let newGameBtn = getByID("new_game");
+    newGameBtn.onclick = createNewGame;
+
+    getByID("roll").onclick = rollDie;
+
+    getByID("hold").onclick = holdDie;
+}
+
 class Player {
     name: string;
     totalScore: number;
@@ -8,12 +17,13 @@ class Player {
     }
 }
 
+// create list of players if expanding to more than 2 players in needs
 var playerList: Player[] = [];
 
 class Game {
     currTurnPlayer: string;
     currTotalScore: number;
-    currGameState: boolean;
+    currGameState: boolean; // true for ongoing, false for over
 
     constructor(currTurnPlayer: string, currTurnTotalScore: number, currGameState: boolean) {
         this.currTurnPlayer = currTurnPlayer;
@@ -24,13 +34,21 @@ class Game {
 
 var currGame: Game;
 
+/**
+ * generate a random value for rolling dice
+ * @param minValue 1
+ * @param maxValue 6
+ * @returns value from minValue to maxValue
+ */
 function generateRandomValue(minValue: number, maxValue: number): number {
     // use random to generate a number between min and max
     var random = Math.floor(Math.random() * (maxValue + 1 - minValue) + minValue);
     return random;
 }
 
-
+/**
+ * switch player when dice hits 1
+ */
 function changePlayers(): void {
     let currentPlayerName = getByID("current").innerText;
 
@@ -52,15 +70,9 @@ function changePlayers(): void {
     getInputByID("total").value = "0";
 }
 
-window.onload = function () {
-    let newGameBtn = getByID("new_game");
-    newGameBtn.onclick = createNewGame;
-
-    getByID("roll").onclick = rollDie;
-
-    getByID("hold").onclick = holdDie;
-}
-
+/**
+ * creates a new game 
+ */
 function createNewGame() {
     //verify each player has a name
     //if both players don't have a name display error
@@ -79,10 +91,14 @@ function createNewGame() {
         //lock in player names and then change players
         getByID("player1").setAttribute("disabled", "disabled");
         getByID("player2").setAttribute("disabled", "disabled");
+
+        // add players to player list
         let player1 = new Player(player1Name, 0);
         playerList.push(player1);
         let player2 = new Player(player2Name, 0);
         playerList.push(player2);
+
+        // create first game for first player on player list
         currGame = new Game(playerList[0].name, playerList[0].totalScore, true);
         getByID("current").innerText = currGame.currTurnPlayer;
         getByID("total").innerText = currGame.currTotalScore.toString();
@@ -99,9 +115,12 @@ function rollDie(): void {
 
         //roll the die and get a random value 1 - 6 (use generateRandomValue function)
         let roll = generateRandomValue(1, 6);
+
+        // show another picture when roll button click
         getByID("dice-spinning").classList.add("hide");
         getByID("dice-shake").classList.add("shake");
         
+        // return to previous picture after certain time
         setTimeout(() => { 
             getByID("dice-shake").classList.remove("shake");
             getByID("dice-spinning").classList.remove("hide"); }, 2000);
@@ -113,16 +132,17 @@ function rollDie(): void {
         if (roll == 1) {
             playAudio("rolling-dice");
             setTimeout(() => { textToSpeech("uh oh. Next player please!"); }, 1000);
+            // display a picture for a certain time
             getByID("white-flag").classList.add("show");
             setTimeout(() => { getByID("white-flag").classList.remove("show"); }, 4000);
             setTimeout(() => { changePlayers(); }, 3500);
             freezeButtons(3);
         }
 
-        //if the roll is greater than 1
-        //  add roll value to current total
-        //set the die roll to value player rolled
-        //display current total on form
+        // if the roll is greater than 1
+        // add roll value to current total
+        // set the die roll to value player rolled
+        // display current total on form
         else {
             playAudio("rolling-dice");
             getInputByID("die").value = roll.toString();
@@ -134,9 +154,6 @@ function rollDie(): void {
                 textToSpeech("The WINNER is: " + currGame.currTurnPlayer);
             }
         }
-
-        //set the die roll to value player rolled
-        //display current total on form
     }
 
 }
@@ -215,6 +232,7 @@ function getInputByID(id: string) {
 
 /**
  * short version of (<HTMLInputElement>document.getElementById()).value
+ * use one way to retrieve the data, not to insert
  * @param id of input textbox
  * @returns value of input textbox
  */

@@ -1,3 +1,9 @@
+window.onload = function () {
+    var newGameBtn = getByID("new_game");
+    newGameBtn.onclick = createNewGame;
+    getByID("roll").onclick = rollDie;
+    getByID("hold").onclick = holdDie;
+};
 var Player = (function () {
     function Player(playerName, playerTotalScore) {
         this.name = playerName;
@@ -33,12 +39,6 @@ function changePlayers() {
     getInputByID("die").value = "0";
     getInputByID("total").value = "0";
 }
-window.onload = function () {
-    var newGameBtn = getByID("new_game");
-    newGameBtn.onclick = createNewGame;
-    getByID("roll").onclick = rollDie;
-    getByID("hold").onclick = holdDie;
-};
 function createNewGame() {
     getByID("errMsg").innerText = "";
     resetData();
