@@ -36,7 +36,7 @@ function changePlayers() {
     currentPlayerName = playerList[j].name;
     currGame = new Game(currentPlayerName, playerList[j].totalScore, true);
     getByID("current").innerText = currentPlayerName;
-    getInputByID("die").value = "0";
+    getInputByID("die").value = "";
     getInputByID("total").value = "0";
 }
 function createNewGame() {
