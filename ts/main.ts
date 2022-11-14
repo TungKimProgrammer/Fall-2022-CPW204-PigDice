@@ -173,7 +173,7 @@ function holdDie(): void {
     //reset the turn total to 0
 
     //change players
-    getInputByID("die").value = "0";
+    getInputByID("die").value = "";
     getInputByID("total").value = "0";
     textToSpeech("Next player please!");
     freezeButtons(2);

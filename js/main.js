@@ -103,7 +103,7 @@ function holdDie() {
             document.getElementById("score" + (i + 1)).value = playerList[i].totalScore.toString();
         }
     }
-    getInputByID("die").value = "0";
+    getInputByID("die").value = "";
     getInputByID("total").value = "0";
     textToSpeech("Next player please!");
     freezeButtons(2);
