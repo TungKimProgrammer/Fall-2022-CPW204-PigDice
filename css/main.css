@@ -41,7 +41,7 @@ fieldset {
     width: 10em;
 }
 #new_game {
-    width: 6em;
+    width: 8em;
     margin-left: 1em;
 }
 #hold {
@@ -97,3 +97,28 @@ fieldset {
     display: none;
 }
 
+input[type=button] {
+    margin-top: 1.5em;
+    margin-bottom: 1.5em;
+    width: 100px;
+    background-color: rgb(147, 241, 147);
+    color: purple;
+    border: 1px solid black;
+    cursor: pointer;
+    padding: 0.75em;
+    border-radius: 0.3em;
+    box-shadow: 7px 6px 28px 1px rgba(0, 0, 0, 0.24);
+}
+
+input[type=button]:hover {
+    background-color: orange;
+}
+
+input[type=button]:active {
+    color: white;
+    background-color: red;
+    transform: scale(0.9);
+    /* Scaling button to 0.98 to its original size */
+    box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
+    /* Lowering the shadow */
+}

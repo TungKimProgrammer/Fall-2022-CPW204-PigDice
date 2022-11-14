@@ -78,6 +78,7 @@ function createNewGame() {
     //if both players don't have a name display error
     //if both players do have a name start the game!
     getByID("errMsg").innerText = "";
+    getByID("announcement").innerText = "";
     resetData();
     let player1Name = getInputValueByID("player1").toUpperCase();
     let player2Name = getInputValueByID("player2").toUpperCase();
