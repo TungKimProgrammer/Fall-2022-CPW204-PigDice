@@ -17,4 +17,4 @@ Optional Enhancements
 - Playing a sound when the die is rolled
 - Show a rolling die when roll is clicked
 
-Check live on 
+Check live on https://tungkimprogrammer.github.io/Fall-2022-CPW204-PigDice/
