@@ -122,3 +122,12 @@ input[type=button]:active {
     box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
     /* Lowering the shadow */
 }
+
+input[type=button]:disabled {
+    color: white;
+    background-color: rgb(131, 131, 131);
+    transform: scale(0.9);
+    /* Scaling button to 0.98 to its original size */
+    box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
+    /* Lowering the shadow */
+}
