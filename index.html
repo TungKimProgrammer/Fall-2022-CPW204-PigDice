@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Pig Dice Game</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+    <main>
+        <h1>Let's Play PIG!</h1>
+        <div class="img-holder">
+            <img id="dice-spinning" src="https://thumbs.gfycat.com/EmbarrassedOpenBat.webp"
+                alt="dice-spinning">
+            <img id="dice-shake" src="https://bestanimations.com/media/dice/1568849588rolling-dice-gif-5.gif"
+                alt="dice-shake">
+        </div>
+        <fieldset>
+            <legend>Rules</legend>
+            <ul>
+                <li>First player to 100 wins.</li>
+                <li>Players take turns rolling the die.</li>
+                <li>Turn ends when player rolls a 1 or chooses to hold.</li>
+                <li>If player rolls a 1, they lose all points earned during the turn.</li>
+                <li>If player holds, points earned during the turn are added to their total.</li>
+            </ul>
+        </fieldset>
+        <label for="player1">Player 1</label>
+        <input type="text" id="player1">
+        <label for="score1">Score</label>
+        <input type="text" id="score1" value="" disabled>
+        <span id="errMsg" class="errMsg"></span>
+        <span id="announcement" class="announcement"></span>
+        <br>
+        <label for="player2">Player 2</label>
+        <input type="text" id="player2">
+        <label for="score2">Score</label>
+        <input type="text" id="score2" value="" disabled>
+        <input type="button" id="new_game" value="New Game">
+        <br>
+
+        <section id="turn">
+            <p>
+                <span id="current">&nbsp;</span>'s turn
+                <img id="white-flag"
+                    src="https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/clans/35544601/7a21d558cb3818aab31e1f843e963744180dcad4.gif"
+                    alt="dice-white-flag">
+
+            </p>
+            <input type="button" id="roll" value="Roll">
+            <input type="button" id="hold" value="Hold">
+
+            <label for="die">Die</label>
+            <input type="text" id="die" disabled>
+            <label for="total">Total</label>
+            <input type="text" id="total" disabled>
+
+
+
+        </section>
+
+        <audio id="rolling-dice">
+            <source
+                src="https://cdn.pixabay.com/download/audio/2022/03/10/audio_eb469f9755.mp3?filename=gamemisc_dice-roll-on-wood_jaku5-37414.mp3">
+        </audio>
+    </main>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

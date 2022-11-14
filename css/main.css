@@ -1,0 +1,99 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: white;
+    margin: 0 auto;
+    width: 650px;
+    border: 3px solid blue;
+    padding: 0 2em 1em;
+}
+h1 {
+    color: blue;
+    margin-bottom: .25em;
+}
+ul{
+    padding-left: 15px;
+}
+label {
+    width: 4em;
+    text-align: right;
+    padding-bottom: .5em;
+}
+input {
+    width: 4em;
+    margin-left: .5em;
+    margin-bottom: .5em;
+}
+fieldset {
+    margin-bottom: 1em;
+}
+#turn {
+    display: none;
+}
+#turn.open {
+    display: block;
+    display: inline;
+}
+#turn p {
+    font-weight: bold;
+    color: red;
+}
+#player1, #player2 {
+    width: 10em;
+}
+#new_game {
+    width: 6em;
+    margin-left: 1em;
+}
+#hold {
+    margin-right: 2em;
+}
+
+.errMsg {
+    color: red; 
+    font-size: 14px;
+    font-style: italic; 
+    margin-left: 0.9em;
+}
+
+.announcement {
+    color: blue; 
+    font-size: 14px;
+    font-style: bold; 
+}
+
+#white-flag {
+    display: none;
+}
+#white-flag.show {
+    display: block;
+    display: inline;
+    max-width: 40px;
+}
+
+#dice-shake {
+    display: none;
+}
+#dice-shake.shake {
+    display: block;
+    max-width: 100px;
+    margin-top: 30px;
+}
+
+.img-holder {
+    width: 120px;
+    height: 120px;
+    display: block;
+    float: left;
+    text-align: center;
+}
+
+#dice-spinning {
+    display: block;
+    max-width: 100px;
+    margin-top: 30px; 
+}
+
+#dice-spinning.hide {
+    display: none;
+}
+
