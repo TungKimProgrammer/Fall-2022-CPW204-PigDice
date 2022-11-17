@@ -75,7 +75,9 @@ function rollDie() {
             getByID("dice-spinning").classList.remove("hide");
         }, 2000);
         getByID("white-flag").classList.remove("show");
+        getInputByID("die").value = roll.toString();
         if (roll == 1) {
+            getInputByID("total").value = "0";
             playAudio("rolling-dice");
             setTimeout(function () { textToSpeech("uh oh. Next player please!"); }, 1000);
             getByID("white-flag").classList.add("show");
@@ -85,7 +87,6 @@ function rollDie() {
         }
         else {
             playAudio("rolling-dice");
-            getInputByID("die").value = roll.toString();
             currTotal += roll;
             getInputByID("total").value = currTotal.toString();
             if (currTotal >= 100 || currTotal + currGame.currTotalScore >= 100) {

@@ -127,10 +127,12 @@ function rollDie(): void {
             getByID("dice-spinning").classList.remove("hide"); }, 2000);
         getByID("white-flag").classList.remove("show");
 
+        getInputByID("die").value = roll.toString();
         //if the roll is 1
         //  change players
         //  set current total to 0
         if (roll == 1) {
+            getInputByID("total").value = "0";
             playAudio("rolling-dice");
             setTimeout(() => { textToSpeech("uh oh. Next player please!"); }, 1000);
             // display a picture for a certain time
@@ -146,7 +148,6 @@ function rollDie(): void {
         // display current total on form
         else {
             playAudio("rolling-dice");
-            getInputByID("die").value = roll.toString();
             currTotal += roll;
             getInputByID("total").value = currTotal.toString();
             if (currTotal >= 100 || currTotal + currGame.currTotalScore >= 100) {
