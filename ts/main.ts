@@ -109,6 +109,7 @@ function createNewGame() {
 
 }
 
+// rolls die, execute when player click on Roll button
 function rollDie(): void {
     if (currGame.currGameState) {
         getInputByID("errMsg").value =  "";
@@ -160,6 +161,7 @@ function rollDie(): void {
 
 }
 
+// holds score and passes turn to next player
 function holdDie(): void {
     //get the current turn total
     let currTotal = parseInt(getInputValueByID("total"));
@@ -181,7 +183,6 @@ function holdDie(): void {
     freezeButtons(2);
     //changePlayers();
     setTimeout(() => {  changePlayers(); }, 2000);
-
 }
 
 function isValid(): boolean {
@@ -206,6 +207,7 @@ function isValid(): boolean {
     }
 }
 
+// resets forms
 function resetData(): void {
     getInputByID("score1").value = "";
     getInputByID("score2").value = "";
@@ -261,6 +263,8 @@ function castByID(id: string) {
     window.speechSynthesis.speak(msg);
 }
 
+// freezes buttons and re-enables for a certain time 
+// while other functions are processing
 function freezeButtons(second: number) {
     getInputByID("roll").disabled = true;
     getInputByID("hold").disabled = true;
